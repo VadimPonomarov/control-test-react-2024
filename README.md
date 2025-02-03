@@ -14,7 +14,7 @@ Axios
 TypeScript
 TanStack Query
 Tailwind CSS
-Shadcn UI
+Shad/cn UI
 Vite
 ...
 

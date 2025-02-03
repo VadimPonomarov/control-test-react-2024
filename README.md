@@ -16,7 +16,7 @@ TanStack Query
 Tailwind CSS
 Shad/cn UI
 Vite
-...
+Redux-Persist 
 
 ## Contact
 
@@ -56,6 +56,16 @@ starting with Login.
 
 - **Repeated authentication**: A repeated authentication error leads to the cycle stopping and signals the need to go
   through the authentication procedure again, starting with Login.
+- 
+## Redux-Persist
+
+**Redux-persist** is a library that allows to save the Redux store in the local storage of the browser. This means that even if the user refreshes the page or closes and reopens the browser, the state of the Redux store will be preserved. Here are some key benefits and uses of redux-persist:
+
+**State Persistence**: It ensures that the state of application is maintained across page reloads and browser sessions.
+
+**User Experience**: Enhances user experience by retaining user data, such as authentication status, preferences, and other stateful information.`
+
+**Offline Support**: Allows application to work offline by storing the state locally.`
 
 ## Working with Filters
 

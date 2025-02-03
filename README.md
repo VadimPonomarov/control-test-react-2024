@@ -14,7 +14,7 @@ Axios
 TypeScript
 TanStack Query
 Tailwind CSS
-Shadcn UI
+Shad/cn UI
 Vite
 ...
 
@@ -72,5 +72,9 @@ To work with filters in the project, follow these steps:
 4. **User Interface for Filters**: The user interface includes a "Filters" button that opens a form for entering
    corresponding text values, which serve as templates for searching in the relevant fields of the entire list of
    objects. To remove the filter, reopen the form without entering any values.
+
+## Infinite Scroll
+
+**Infinite Scroll**: The project includes an infinite scroll feature. To apply it, you need to set the parameters skip=0 and limit>30
 
 .

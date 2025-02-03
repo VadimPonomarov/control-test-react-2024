@@ -1,50 +1,76 @@
-# React + TypeScript + Vite
+# Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Installation
 
-Currently, two official plugins are available:
+git clone <repository URL>
+npm install
+npm run dev
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies
 
-## Expanding the ESLint configuration
+React
+Redux
+Axios
+TypeScript
+TanStack Query
+Tailwind CSS
+Shadcn UI
+Vite
+...
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Contact
 
-- Configure the top-level `parserOptions` property like this:
+pvs.versia@gmail.com
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Description
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+When the project starts, if the user is not logged in, they will be redirected to the authentication page. All site
+resources that require data loading using `accessToken` will be closed for access until authentication through the Login
+form. The logged-in user will be displayed in the upper right corner of the site in the menu block and highlighted with
+a red background in the badge. Upon receiving the token pair, the menu items requiring authentication will be unlocked.
+When making requests to an external API, the tokens used are pulled from `redux` using a hook (not from Local Storage).
+The expired token is automatically refreshed using the `refresh` procedure, triggered by a `401` response. A repeated
+authentication error leads to the cycle stopping and signals the need to go through the authentication procedure again,
+starting with Login.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Functionality
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **Redirect to authentication page**: If the user is not logged in, they will be automatically redirected to the
+  authentication page.
+- **Access to resources**: All site resources that require `accessToken` will be inaccessible until successful
+  authentication.
+- **User display**: The logged-in user will be displayed in the upper right corner of the site in the menu block and
+  highlighted with a red background in the badge.
+- **Unlocking menu items**: Upon receiving the token pair, the menu items requiring authentication will be unlocked.
+- **Using tokens**: When making requests to an external API, the tokens used are pulled from `redux` using a hook (not
+  from Local Storage).
+- **Automatic token refresh**: The expired token is automatically refreshed using the `refresh` procedure, triggered by
+  a `401` response. Example of using:
+  ```typescript
+  if (error.response.status === 401 && !originalRequest._retry) {
+  originalRequest._retry = true;
+  dispatch(iniActions.unsetMe());
+  // Token refresh procedure
+
+}
+
+- **Repeated authentication**: A repeated authentication error leads to the cycle stopping and signals the need to go
+  through the authentication procedure again, starting with Login.
+
+## Working with Filters
+
+To work with filters in the project, follow these steps:
+
+1. **Define filters**: Filters are defined in the corresponding components and can be used to filter data based on
+   various criteria.
+2. **Apply filters**: Filters are applied to the data loaded using `accessToken`. Ensure that the user is logged in and
+   the token is available.
+3. **Use hook**: When making requests to an external API, use the hook to get tokens from `redux`. Example of using the
+   hook:
+   ```typescript
+   const { accessToken, refreshToken } = useAppSelector(state => state.ini);
+4. **User Interface for Filters**: The user interface includes a "Filters" button that opens a form for entering
+   corresponding text values, which serve as templates for searching in the relevant fields of the entire list of
+   objects. To remove the filter, reopen the form without entering any values.
+
+.

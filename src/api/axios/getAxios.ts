@@ -7,4 +7,6 @@ export const getAxios = (baseUrl: string) =>
     headers: {
       accept: "application/json",
     },
+      withCredentials:true,
+
   });

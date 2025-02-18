@@ -19,11 +19,11 @@ const useApiAuth = () => {
   const [apiPosts] = useInterceptors(getAxios(baseUrl));
 
   const apiAuthService = {
-    login: async (credentials: IDummyAuth): Promise<void> => {
+    login: async (data: IDummyAuth): Promise<void> => {
       try {
         const response = await apiPosts.post<IDummyAuthLoginResponse>(
           baseUrl + "/auth/login",
-          credentials,
+          data,
         );
         dispatch(iniActions.setTokenPair(response.data));
       } catch (e) {
